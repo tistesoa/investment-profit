@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.nbank.domain.CalculateInvestmentTaxTestVO" tests="10" skipped="0" failures="0" errors="0" timestamp="2024-02-15T18:16:38" hostname="Tiagos-MacBook-Air.local" time="0.024">
+  <properties/>
+  <testcase name="shouldRunCase2Successfully()" classname="com.nbank.domain.CalculateInvestmentTaxTestVO" time="0.013"/>
+  <testcase name="shouldRunCase1Successfully()" classname="com.nbank.domain.CalculateInvestmentTaxTestVO" time="0.0"/>
+  <testcase name="shouldThrowExceptionWhenInformedInvalidTaxRate()" classname="com.nbank.domain.CalculateInvestmentTaxTestVO" time="0.003"/>
+  <testcase name="shouldRunCase8Successfully()" classname="com.nbank.domain.CalculateInvestmentTaxTestVO" time="0.0"/>
+  <testcase name="shouldRunCase7Successfully()" classname="com.nbank.domain.CalculateInvestmentTaxTestVO" time="0.0"/>
+  <testcase name="shouldThrowExceptionWhenInformedInvalidMinProfit()" classname="com.nbank.domain.CalculateInvestmentTaxTestVO" time="0.001"/>
+  <testcase name="shouldRunCase6Successfully()" classname="com.nbank.domain.CalculateInvestmentTaxTestVO" time="0.001"/>
+  <testcase name="shouldRunCase5Successfully()" classname="com.nbank.domain.CalculateInvestmentTaxTestVO" time="0.001"/>
+  <testcase name="shouldRunCase4Successfully()" classname="com.nbank.domain.CalculateInvestmentTaxTestVO" time="0.0"/>
+  <testcase name="shouldRunCase3Successfully()" classname="com.nbank.domain.CalculateInvestmentTaxTestVO" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

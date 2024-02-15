@@ -1,11 +1,10 @@
 package com.nbank.domain;
 
-import com.nbank.domain.vo.Operation;
-import com.nbank.domain.vo.Result;
-
+import com.nbank.commons.vo.OperationVO;
+import com.nbank.commons.vo.TaxVO;
 import java.util.List;
 
 public interface CalculateTax {
 
-    List<Result> calculate(List<Operation> operationList);
+  List<TaxVO> calculate(List<OperationVO> operationVOList);
 }

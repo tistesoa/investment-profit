@@ -5,36 +5,35 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nbank.commons.vo.OperationVO;
 import com.nbank.domain.CalculateTax;
 import com.nbank.domain.impl.CalculateInvestmentTaxImpl;
-import com.nbank.domain.vo.Operation;
-
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
-import java.util.logging.Logger;
 
 public class CalculateInvestmentTaxApp {
-    public static Logger logger = Logger.getLogger(CalculateInvestmentTaxApp.class.getName());
 
-    public static void main(String[] args) throws JsonProcessingException {
-        CalculateTax calculateTax = new CalculateInvestmentTaxImpl();
-        Scanner scanner = new Scanner(System.in);
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            if (line.isEmpty()) {
-                break;
-            }
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS);
-            List<Operation> operations = objectMapper.readValue(line, new TypeReference<>() {
-            });
-            var results = calculateTax.calculate(operations);
-            var restJson = objectMapper.writeValueAsString(results);
-            //serializable to json
-            System.out.println(restJson);
+  public static final BigDecimal TAX_RATE = BigDecimal.valueOf(0.20);
+  public static final BigDecimal MIN_PROFIT = new BigDecimal("20000");
 
-        }
-        scanner.close();
-        //System.out.println("Program terminated.");
+  public static void main(String[] args) throws JsonProcessingException {
+    CalculateTax calculateTax = new CalculateInvestmentTaxImpl(TAX_RATE, MIN_PROFIT);
+    Scanner scanner = new Scanner(System.in);
+    while (scanner.hasNextLine()) {
+      String line = scanner.nextLine();
+      if (line.isEmpty()) {
+        break;
+      }
+      ObjectMapper objectMapper = new ObjectMapper();
+      objectMapper.enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS);
+      List<OperationVO> operationVOS = objectMapper.readValue(line, new TypeReference<>() {
+      });
+      var results = calculateTax.calculate(operationVOS);
+      var restJson = objectMapper.writeValueAsString(results);
+      System.out.println(restJson);
+
     }
+    scanner.close();
+  }
 }
