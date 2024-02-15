@@ -1,8 +1,8 @@
 package com.nbank.domain.impl;
 
-import com.nbank.domain.CalculateTax;
 import com.nbank.commons.vo.OperationVO;
 import com.nbank.commons.vo.TaxVO;
+import com.nbank.domain.CalculateTax;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
