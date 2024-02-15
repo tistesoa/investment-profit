@@ -2,6 +2,7 @@ package com.nbank.domain;
 
 import com.nbank.domain.impl.CalculateInvestmentTaxImpl;
 import com.nbank.domain.vo.Operation;
+import com.nbank.domain.vo.Result;
 import com.nbank.domain.vo.Type;
 import org.junit.jupiter.api.Test;
 
@@ -10,18 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
-
+import static com.nbank.domain.impl.CalculateInvestmentTaxImpl.ZERO_VALUE;
 public class CalculateInvestmentTaxTest {
 
     CalculateTax calculateInvestmentTax;
 
     @Test
-    public void case1() {
+    public void shouldRunCase1Successfully() {
         calculateInvestmentTax = new CalculateInvestmentTaxImpl();
-        List<BigDecimal> expected = new ArrayList<>();
-        expected.add(BigDecimal.ZERO);
-        expected.add(BigDecimal.ZERO);
-        expected.add(BigDecimal.ZERO);
+        List<Result> expected = new ArrayList<>();
+        expected.add(ZERO_VALUE);
+        expected.add(ZERO_VALUE);
+        expected.add(ZERO_VALUE);
 
         List<Operation> input = new ArrayList<>();
         input.add(new Operation(Type.BUY,new BigDecimal("10.00"),100));
@@ -32,12 +33,12 @@ public class CalculateInvestmentTaxTest {
         assertIterableEquals(expected, result);
     }
     @Test
-    public void case2() {
+    public void shouldRunCase2Successfully() {
         calculateInvestmentTax = new CalculateInvestmentTaxImpl();
-        List<BigDecimal> expected = new ArrayList<>();
-        expected.add(BigDecimal.ZERO);
-        expected.add(new BigDecimal("10000.00"));
-        expected.add(BigDecimal.ZERO);
+        List<Result> expected = new ArrayList<>();
+        expected.add(ZERO_VALUE);
+        expected.add(new Result(new BigDecimal("10000.00")));
+        expected.add(ZERO_VALUE);
 
         List<Operation> input = new ArrayList<>();
         input.add(new Operation(Type.BUY,new BigDecimal("10.00"),10000));
@@ -48,12 +49,12 @@ public class CalculateInvestmentTaxTest {
     }
 
     @Test
-    public void case3() {
+    public void shouldRunCase3Successfully() {
         calculateInvestmentTax = new CalculateInvestmentTaxImpl();
-        List<BigDecimal> expected = new ArrayList<>();
-        expected.add(BigDecimal.ZERO);
-        expected.add(BigDecimal.ZERO);
-        expected.add(new BigDecimal("1000.00"));
+        List<Result> expected = new ArrayList<>();
+        expected.add(ZERO_VALUE);
+        expected.add(ZERO_VALUE);
+        expected.add(new Result(new BigDecimal("1000.00")));
 
         List<Operation> input = new ArrayList<>();
         input.add(new Operation(Type.BUY,new BigDecimal("10.00"),10000));
@@ -64,12 +65,12 @@ public class CalculateInvestmentTaxTest {
     }
 
     @Test
-    public void case4() {
+    public void shouldRunCase4Successfully() {
         calculateInvestmentTax = new CalculateInvestmentTaxImpl();
-        List<BigDecimal> expected = new ArrayList<>();
-        expected.add(BigDecimal.ZERO);
-        expected.add(BigDecimal.ZERO);
-        expected.add(BigDecimal.ZERO);
+        List<Result> expected = new ArrayList<>();
+        expected.add(ZERO_VALUE);
+        expected.add(ZERO_VALUE);
+        expected.add(ZERO_VALUE);
 
         List<Operation> input = new ArrayList<>();
         input.add(new Operation(Type.BUY,new BigDecimal("10.00"),10000));
@@ -80,13 +81,13 @@ public class CalculateInvestmentTaxTest {
     }
 
     @Test
-    public void case5() {
+    public void shouldRunCase5Successfully() {
         calculateInvestmentTax = new CalculateInvestmentTaxImpl();
-        List<BigDecimal> expected = new ArrayList<>();
-        expected.add(BigDecimal.ZERO);
-        expected.add(BigDecimal.ZERO);
-        expected.add(BigDecimal.ZERO);
-        expected.add(new BigDecimal("10000.00"));
+        List<Result> expected = new ArrayList<>();
+        expected.add(ZERO_VALUE);
+        expected.add(ZERO_VALUE);
+        expected.add(ZERO_VALUE);
+        expected.add(new Result(new BigDecimal("10000.00")));
         List<Operation> input = new ArrayList<>();
         input.add(new Operation(Type.BUY,new BigDecimal("10.00"),10000));
         input.add(new Operation(Type.BUY,new BigDecimal("25.00"),5000));
@@ -97,14 +98,14 @@ public class CalculateInvestmentTaxTest {
     }
 
     @Test
-    public void case6() {
+    public void shouldRunCase6Successfully() {
         calculateInvestmentTax = new CalculateInvestmentTaxImpl();
-        List<BigDecimal> expected = new ArrayList<>();
-        expected.add(BigDecimal.ZERO);
-        expected.add(BigDecimal.ZERO);
-        expected.add(BigDecimal.ZERO);
-        expected.add(BigDecimal.ZERO);
-        expected.add(new BigDecimal("3000.00"));
+        List<Result> expected = new ArrayList<>();
+        expected.add(ZERO_VALUE);
+        expected.add(ZERO_VALUE);
+        expected.add(ZERO_VALUE);
+        expected.add(ZERO_VALUE);
+        expected.add(new Result(new BigDecimal("3000.00")));
         List<Operation> input = new ArrayList<>();
         input.add(new Operation(Type.BUY,new BigDecimal("10.00"),10000));
         input.add(new Operation(Type.SELL,new BigDecimal("2.00"),5000));
@@ -117,18 +118,18 @@ public class CalculateInvestmentTaxTest {
 
 
     @Test
-    public void case7() {
+    public void shouldRunCase7Successfully() {
         calculateInvestmentTax = new CalculateInvestmentTaxImpl();
-        List<BigDecimal> expected = new ArrayList<>();
-        expected.add(BigDecimal.ZERO);
-        expected.add(BigDecimal.ZERO);
-        expected.add(BigDecimal.ZERO);
-        expected.add(BigDecimal.ZERO);
-        expected.add(new BigDecimal("3000.00"));
-        expected.add(BigDecimal.ZERO);
-        expected.add(BigDecimal.ZERO);
-        expected.add(new BigDecimal("3700.00"));
-        expected.add(BigDecimal.ZERO);
+        List<Result> expected = new ArrayList<>();
+        expected.add(ZERO_VALUE);
+        expected.add(ZERO_VALUE);
+        expected.add(ZERO_VALUE);
+        expected.add(ZERO_VALUE);
+        expected.add(new Result(new BigDecimal("3000.00")));
+        expected.add(ZERO_VALUE);
+        expected.add(ZERO_VALUE);
+        expected.add(new Result(new BigDecimal("3700.00")));
+        expected.add(ZERO_VALUE);
 
         List<Operation> input = new ArrayList<>();
         input.add(new Operation(Type.BUY,new BigDecimal("10.00"),10000));
@@ -146,13 +147,13 @@ public class CalculateInvestmentTaxTest {
 
 
     @Test
-    public void case8() {
+    public void shouldRunCase8Successfully() {
         calculateInvestmentTax = new CalculateInvestmentTaxImpl();
-        List<BigDecimal> expected = new ArrayList<>();
-        expected.add(BigDecimal.ZERO);
-        expected.add(new BigDecimal("80000.00"));
-        expected.add(BigDecimal.ZERO);
-        expected.add(new BigDecimal("60000.00"));
+        List<Result> expected = new ArrayList<>();
+        expected.add(ZERO_VALUE);
+        expected.add(new Result(new BigDecimal("80000.00")));
+        expected.add(ZERO_VALUE);
+        expected.add(new Result(new BigDecimal("60000.00")));
         List<Operation> input = new ArrayList<>();
         input.add(new Operation(Type.BUY,new BigDecimal("10.00"),10000));
         input.add(new Operation(Type.SELL,new BigDecimal("50.00"),10000));

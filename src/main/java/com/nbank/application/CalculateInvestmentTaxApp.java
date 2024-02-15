@@ -26,13 +26,12 @@ public class CalculateInvestmentTaxApp {
             }
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS);
-            List<Operation> operations = objectMapper.readValue(line, new TypeReference<List<Operation>>() {
+            List<Operation> operations = objectMapper.readValue(line, new TypeReference<>() {
             });
-            //System.out.println("Parsed JSON object: " + operations.toString());
             var results = calculateTax.calculate(operations);
-
+            var restJson = objectMapper.writeValueAsString(results);
             //serializable to json
-            System.out.println("Parsed JSON object: " + results.toString());
+            System.out.println(restJson);
 
         }
         scanner.close();
