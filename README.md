@@ -2,7 +2,7 @@
 
 ## Investment Profit Tax Calculation App
 
-This project aiming to solve Capital Gain challenge from NuBank interview process.
+This project aiming to solve Capital Gain challenge interview process.
 
 I structured my files using Domain-driven Design principles, which involve separating domain-specific code from application logic. This approach enhances readability and facilitates future enhancements to the application.
 
